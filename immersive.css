@@ -1,0 +1,272 @@
+/* Progressive 3D-style presentation layer for Perschino Labs.
+   Core content remains usable if this stylesheet or the canvas renderer is unavailable. */
+
+body.has-immersive-hero {
+  background:
+    radial-gradient(circle at 82% 8%, rgba(255, 0, 51, 0.07), transparent 28rem),
+    #0f0f0f;
+}
+
+.immersive-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    radial-gradient(circle at 72% 40%, rgba(255, 0, 51, 0.08), transparent 23rem),
+    linear-gradient(180deg, rgba(255,255,255,0.018), transparent 65%);
+}
+
+.immersive-stage::before {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), transparent 92%);
+  content: "";
+}
+
+.immersive-stage::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, #0f0f0f 0%, rgba(15,15,15,.91) 35%, rgba(15,15,15,.25) 68%, #0f0f0f 100%),
+    linear-gradient(180deg, rgba(15,15,15,.05), #0f0f0f 98%);
+  pointer-events: none;
+  content: "";
+}
+
+.ambient-field {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .94;
+}
+
+.hero.hero-immersive {
+  min-height: 650px;
+  padding-top: 92px;
+  padding-bottom: 92px;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy h1 {
+  max-width: 670px;
+  text-wrap: balance;
+}
+
+.hero-copy .lede {
+  max-width: 620px;
+}
+
+.hero-card.scene-card {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-color: rgba(255,255,255,.14);
+  background: rgba(20, 20, 20, 0.64);
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.48),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(18px) saturate(120%);
+  transform: perspective(900px) rotateY(-3deg) rotateX(1.5deg);
+  transform-origin: center;
+}
+
+.hero-card.scene-card::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,.05), transparent 38%, rgba(255,0,51,.055));
+  pointer-events: none;
+  content: "";
+}
+
+.scene-card .hero-card-header,
+.scene-card .stat-list {
+  position: relative;
+  z-index: 1;
+}
+
+.scene-card .hero-card-header img {
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 12px 30px rgba(0,0,0,.4);
+}
+
+.micro-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 22px;
+  color: #8f8f8f;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.micro-label::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff0033;
+  box-shadow: 0 0 14px rgba(255,0,51,.75);
+  content: "";
+}
+
+.product-card.interactive-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.product-card.interactive-card::after {
+  position: absolute;
+  right: -80px;
+  bottom: -120px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,0,51,.11), transparent 68%);
+  pointer-events: none;
+  content: "";
+}
+
+.product-card.interactive-card:hover {
+  border-color: rgba(255,255,255,.2);
+  box-shadow: 0 24px 70px rgba(0,0,0,.42);
+  transform: translateY(-3px);
+}
+
+.product-card.interactive-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.product-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-height: 470px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  background:
+    radial-gradient(circle at 68% 42%, rgba(255,0,51,.09), transparent 24rem),
+    #0f0f0f;
+}
+
+.product-stage::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(15,15,15,.98) 4%, rgba(15,15,15,.76) 46%, rgba(15,15,15,.22) 78%, #0f0f0f 100%);
+  pointer-events: none;
+  content: "";
+}
+
+.product-stage .product-hero {
+  position: relative;
+  z-index: 2;
+  min-height: 470px;
+  align-content: center;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.product-stage .product-hero > img {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.12),
+    0 24px 70px rgba(0,0,0,.5),
+    0 0 52px rgba(255,0,51,.08);
+}
+
+.product-stage .lede {
+  max-width: 620px;
+}
+
+.product-stage .ambient-field {
+  opacity: .82;
+}
+
+.feature-list li::marker,
+.policy-list li::marker,
+.steps li::marker {
+  color: #ff4d70;
+}
+
+@media (max-width: 900px) {
+  .immersive-stage::after {
+    background: linear-gradient(180deg, rgba(15,15,15,.72), rgba(15,15,15,.94) 78%, #0f0f0f);
+  }
+
+  .hero.hero-immersive {
+    min-height: auto;
+    padding-top: 64px;
+    padding-bottom: 70px;
+  }
+
+  .hero-card.scene-card {
+    max-width: 560px;
+    transform: none;
+  }
+
+  .ambient-field {
+    opacity: .64;
+  }
+
+  .product-stage::after {
+    background: linear-gradient(180deg, rgba(15,15,15,.66), #0f0f0f 90%);
+  }
+}
+
+@media (max-width: 660px) {
+  .immersive-stage::before {
+    background-size: 44px 44px;
+  }
+
+  .hero.hero-immersive {
+    padding-top: 50px;
+    padding-bottom: 54px;
+  }
+
+  .hero-card.scene-card {
+    background: rgba(24,24,24,.82);
+    backdrop-filter: blur(12px);
+  }
+
+  .product-stage,
+  .product-stage .product-hero {
+    min-height: auto;
+  }
+
+  .product-stage .product-hero {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card.interactive-card {
+    transition: none;
+  }
+
+  .product-card.interactive-card:hover {
+    transform: none;
+  }
+
+  .hero-card.scene-card {
+    transform: none;
+  }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .hero-card.scene-card {
+    background: rgba(24,24,24,.96);
+  }
+}
