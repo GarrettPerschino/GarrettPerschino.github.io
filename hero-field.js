@@ -192,13 +192,13 @@
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.32})`;
+          ctx.strokeStyle = `rgba(142,188,211,${alpha * 0.36})`;
           ctx.lineWidth = 0.65;
           ctx.stroke();
         }
       }
 
-      const accent = this.palette === "speed" ? "255,0,51" : "255,44,86";
+      const accent = this.palette === "speed" ? "75,224,183" : "77,141,255";
       projected
         .sort((a, b) => a.z - b.z)
         .forEach((point) => {
@@ -207,7 +207,7 @@
           ctx.arc(point.x, point.y, Math.max(0.65, point.radius), 0, Math.PI * 2);
           ctx.fillStyle = point.accent
             ? `rgba(${accent},${alpha})`
-            : `rgba(245,247,250,${alpha * 0.78})`;
+            : `rgba(212,235,244,${alpha * 0.78})`;
           ctx.fill();
 
           if (point.accent && point.radius > 1.1) {

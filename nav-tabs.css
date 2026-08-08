@@ -4,9 +4,9 @@
   align-items: stretch;
   gap: 6px;
   padding: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(139, 190, 215, 0.13);
   border-radius: 12px;
-  background: rgba(24, 24, 24, 0.72);
+  background: rgba(11, 29, 42, 0.72);
 }
 
 .site-nav a {
@@ -20,7 +20,7 @@
   border: 1px solid transparent;
   border-radius: 8px;
   background: transparent;
-  color: #cfcfcf;
+  color: #b9cbd5;
   box-shadow: none;
   font-size: 13px;
   font-weight: 700;
@@ -41,15 +41,15 @@
 }
 
 .site-nav a[aria-current="page"] {
-  border-color: rgba(255, 0, 51, 0.28);
-  background: rgba(255, 0, 51, 0.12);
+  border-color: rgba(77, 141, 255, 0.32);
+  background: linear-gradient(135deg, rgba(77, 141, 255, 0.17), rgba(75, 224, 183, 0.08));
   color: #ffffff;
   box-shadow: none;
 }
 
 .site-nav a[aria-current="page"]:hover {
-  border-color: rgba(255, 0, 51, 0.34);
-  background: rgba(255, 0, 51, 0.15);
+  border-color: rgba(77, 141, 255, 0.42);
+  background: linear-gradient(135deg, rgba(77, 141, 255, 0.21), rgba(75, 224, 183, 0.1));
 }
 
 @media (max-width: 760px) {

@@ -3,8 +3,9 @@
 
 body.has-immersive-hero {
   background:
-    radial-gradient(circle at 82% 8%, rgba(255, 0, 51, 0.07), transparent 28rem),
-    #0f0f0f;
+    radial-gradient(circle at 82% 8%, rgba(75, 224, 183, 0.075), transparent 28rem),
+    radial-gradient(circle at 15% 18%, rgba(77, 141, 255, 0.07), transparent 31rem),
+    #07131d;
 }
 
 .immersive-stage {
@@ -13,7 +14,8 @@ body.has-immersive-hero {
   overflow: clip;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   background:
-    radial-gradient(circle at 72% 40%, rgba(255, 0, 51, 0.08), transparent 23rem),
+    radial-gradient(circle at 72% 40%, rgba(75, 224, 183, 0.09), transparent 24rem),
+    radial-gradient(circle at 28% 26%, rgba(77, 141, 255, 0.1), transparent 28rem),
     linear-gradient(180deg, rgba(255,255,255,0.018), transparent 65%);
 }
 
@@ -34,8 +36,8 @@ body.has-immersive-hero {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, #0f0f0f 0%, rgba(15,15,15,.91) 35%, rgba(15,15,15,.25) 68%, #0f0f0f 100%),
-    linear-gradient(180deg, rgba(15,15,15,.05), #0f0f0f 98%);
+    linear-gradient(90deg, #07131d 0%, rgba(7,19,29,.91) 35%, rgba(7,19,29,.24) 68%, #07131d 100%),
+    linear-gradient(180deg, rgba(7,19,29,.05), #07131d 98%);
   pointer-events: none;
   content: "";
 }
@@ -51,9 +53,9 @@ body.has-immersive-hero {
 }
 
 .hero.hero-immersive {
-  min-height: 650px;
-  padding-top: 92px;
-  padding-bottom: 92px;
+  min-height: 760px;
+  padding-top: 104px;
+  padding-bottom: 112px;
 }
 
 .hero-copy {
@@ -75,7 +77,7 @@ body.has-immersive-hero {
   z-index: 2;
   overflow: hidden;
   border-color: rgba(255,255,255,.14);
-  background: rgba(20, 20, 20, 0.64);
+  background: rgba(9, 25, 37, 0.68);
   box-shadow:
     0 28px 90px rgba(0,0,0,.48),
     inset 0 1px 0 rgba(255,255,255,.06);
@@ -87,7 +89,7 @@ body.has-immersive-hero {
 .hero-card.scene-card::before {
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, rgba(255,255,255,.05), transparent 38%, rgba(255,0,51,.055));
+  background: linear-gradient(145deg, rgba(255,255,255,.055), transparent 38%, rgba(75,224,183,.06));
   pointer-events: none;
   content: "";
 }
@@ -107,7 +109,7 @@ body.has-immersive-hero {
   align-items: center;
   gap: 7px;
   margin-top: 22px;
-  color: #8f8f8f;
+  color: #7993a3;
   font-size: 12px;
   font-weight: 700;
 }
@@ -116,8 +118,8 @@ body.has-immersive-hero {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #ff0033;
-  box-shadow: 0 0 14px rgba(255,0,51,.75);
+  background: #4be0b7;
+  box-shadow: 0 0 14px rgba(75,224,183,.75);
   content: "";
 }
 
@@ -134,7 +136,7 @@ body.has-immersive-hero {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,0,51,.11), transparent 68%);
+  background: radial-gradient(circle, rgba(77,141,255,.13), transparent 68%);
   pointer-events: none;
   content: "";
 }
@@ -157,15 +159,16 @@ body.has-immersive-hero {
   min-height: 470px;
   border-bottom: 1px solid rgba(255,255,255,.07);
   background:
-    radial-gradient(circle at 68% 42%, rgba(255,0,51,.09), transparent 24rem),
-    #0f0f0f;
+    radial-gradient(circle at 68% 42%, rgba(75,224,183,.09), transparent 24rem),
+    radial-gradient(circle at 34% 28%, rgba(77,141,255,.08), transparent 26rem),
+    #07131d;
 }
 
 .product-stage::after {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(15,15,15,.98) 4%, rgba(15,15,15,.76) 46%, rgba(15,15,15,.22) 78%, #0f0f0f 100%);
+  background: linear-gradient(90deg, rgba(7,19,29,.98) 4%, rgba(7,19,29,.76) 46%, rgba(7,19,29,.22) 78%, #07131d 100%);
   pointer-events: none;
   content: "";
 }
@@ -183,7 +186,7 @@ body.has-immersive-hero {
   box-shadow:
     0 0 0 1px rgba(255,255,255,.12),
     0 24px 70px rgba(0,0,0,.5),
-    0 0 52px rgba(255,0,51,.08);
+    0 0 52px rgba(75,224,183,.1);
 }
 
 .product-stage .lede {
@@ -197,12 +200,12 @@ body.has-immersive-hero {
 .feature-list li::marker,
 .policy-list li::marker,
 .steps li::marker {
-  color: #ff4d70;
+  color: #55dfba;
 }
 
 @media (max-width: 900px) {
   .immersive-stage::after {
-    background: linear-gradient(180deg, rgba(15,15,15,.72), rgba(15,15,15,.94) 78%, #0f0f0f);
+    background: linear-gradient(180deg, rgba(7,19,29,.72), rgba(7,19,29,.94) 78%, #07131d);
   }
 
   .hero.hero-immersive {
@@ -221,7 +224,7 @@ body.has-immersive-hero {
   }
 
   .product-stage::after {
-    background: linear-gradient(180deg, rgba(15,15,15,.66), #0f0f0f 90%);
+    background: linear-gradient(180deg, rgba(7,19,29,.66), #07131d 90%);
   }
 }
 
@@ -236,7 +239,7 @@ body.has-immersive-hero {
   }
 
   .hero-card.scene-card {
-    background: rgba(24,24,24,.82);
+    background: rgba(10,28,40,.86);
     backdrop-filter: blur(12px);
   }
 
@@ -267,6 +270,6 @@ body.has-immersive-hero {
 
 @supports not (backdrop-filter: blur(12px)) {
   .hero-card.scene-card {
-    background: rgba(24,24,24,.96);
+    background: rgba(10,28,40,.96);
   }
 }

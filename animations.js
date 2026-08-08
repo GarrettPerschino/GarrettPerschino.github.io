@@ -210,6 +210,10 @@
 
     revealOnScroll("#products .section-header", { y: 18, duration: 0.58 });
     revealOnScroll("#products .interactive-card", { y: 30, scale: 0.985, duration: 0.7 });
+    revealOnScroll("#principles .section-header", { y: 20, duration: 0.6 });
+    revealOnScroll("#principles .principle-card", { y: 26, duration: 0.62, staggerByIndex: 0.05 });
+    revealOnScroll(".studio-statement > *", { y: 22, duration: 0.64, staggerByIndex: 0.05 });
+    revealOnScroll(".contact-panel", { y: 24, scale: 0.99, duration: 0.68 });
     revealOnScroll(".section.compact .card", { y: 24, duration: 0.62, staggerByIndex: 0.04 });
 
     addScrollParallax();
