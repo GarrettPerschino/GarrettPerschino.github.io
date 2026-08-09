@@ -454,7 +454,6 @@ details {
   height: 72px;
   border: 1px solid var(--border);
   border-radius: 17px;
-  filter: grayscale(1) contrast(1.08);
 }
 
 .product-kicker div {
@@ -689,7 +688,6 @@ details {
   height: 96px;
   border: 1px solid var(--border);
   border-radius: 22px;
-  filter: grayscale(1) contrast(1.08);
 }
 
 .product-hero h1 {
