@@ -1,86 +1,136 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Speed Lab adds precise, unobtrusive playback-speed controls to YouTube.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Speed Lab – Playback Speed Controller">
-  <meta property="og:description" content="Custom rates, presets, shortcuts, and remembered playback preferences for YouTube.">
-  <meta property="og:url" content="https://garrettperschino.github.io/speed-lab/">
-  <link rel="canonical" href="https://garrettperschino.github.io/speed-lab/">
-  <link rel="icon" href="../speed-lab-icon.png" type="image/png">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../immersive.css">
-  <link rel="stylesheet" href="../nav-tabs.css">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
-  <script src="../hero-field.js" defer></script>
-  <script src="../animations.js" defer></script>
-  <title>Speed Lab – Playback Speed Controller</title>
-</head>
-<body class="has-immersive-hero">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="../" aria-label="Perschino Labs home">
-        <img src="../perschino-labs-icon.svg" width="42" height="42" alt="">
-        <span class="brand-copy"><strong>Perschino Labs</strong><span>Useful software, without the clutter.</span></span>
-      </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="../">Home</a>
-        <a href="./" aria-current="page">Speed Lab</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="support.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Speed Lab adds precise, unobtrusive playback-speed controls to YouTube."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Speed Lab – Playback Speed Controller" />
+    <meta
+      property="og:description"
+      content="Custom rates, presets, shortcuts, and remembered playback preferences for YouTube."
+    />
+    <meta
+      property="og:url"
+      content="https://garrettperschino.github.io/speed-lab/"
+    />
+    <link
+      rel="canonical"
+      href="https://garrettperschino.github.io/speed-lab/"
+    />
+    <link rel="icon" href="../speed-lab-icon.png" type="image/png" />
+    <link rel="stylesheet" href="../styles.css?v=20260809-final3" />
+    <link rel="stylesheet" href="../immersive.css?v=20260809-final3" />
+    <link rel="stylesheet" href="../nav-tabs.css?v=20260809-final3" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="../animations.js?v=20260809-final3" defer></script>
+    <title>Speed Lab – Playback Speed Controller</title>
+  </head>
+  <body class="has-immersive-hero">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../" aria-label="Perschino Labs home">
+          <img src="../perschino-labs-icon.svg" width="42" height="42" alt="" />
+          <span class="brand-copy"
+            ><strong>Perschino Labs</strong><span>Garrett Perschino</span></span
+          >
+        </a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../">Home</a>
+          <a href="./" aria-current="page">Speed Lab</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="support.html">Support</a>
+        </nav>
+      </div>
+    </header>
 
-  <main id="main-content">
-    <section class="product-stage" aria-labelledby="product-title">
-      <canvas class="ambient-field" data-ambient-field data-palette="speed" aria-hidden="true"></canvas>
-      <div class="container product-hero">
-        <img src="../speed-lab-icon.png" width="96" height="96" alt="Speed Lab icon">
-        <div>
-          <div class="badges"><span class="badge success">Chrome extension</span><span class="badge">Works on YouTube</span></div>
-          <h1 id="product-title">Speed Lab</h1>
-          <p class="lede">Set precise YouTube playback speeds without digging through menus.</p>
-          <div class="actions"><a class="button" href="support.html">Get support</a><a class="button secondary" href="privacy.html">Read privacy policy</a></div>
-          <span class="micro-label">Fast controls · remembered preferences · local settings</span>
+    <main id="main-content">
+      <section class="product-stage" aria-labelledby="product-title">
+        <div class="container product-hero">
+          <img
+            src="../speed-lab-icon.png"
+            width="96"
+            height="96"
+            alt="Speed Lab icon"
+          />
+          <div>
+            <div class="badges">
+              <span class="badge success">Chrome extension</span>
+            </div>
+            <h1 id="product-title">Speed Lab</h1>
+            <p class="lede">
+              Set exact YouTube playback speeds from the player control or Speed
+              Lab popup.
+            </p>
+            <div class="actions">
+              <a
+                class="button"
+                href="mailto:perschinolabs@gmail.com?subject=Speed%20Lab%20Support"
+                >Email support</a
+              ><a class="button secondary" href="privacy.html"
+                >Privacy policy</a
+              >
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section compact">
-      <div class="container grid two">
-        <article class="card">
-          <h2>What it does</h2>
-          <ul class="feature-list">
-            <li>Set exact custom playback speeds.</li>
-            <li>Use presets for common speed changes.</li>
-            <li>Increase, decrease, reset, or restore the previous speed with shortcuts.</li>
-            <li>Hold a key for temporary 2× playback.</li>
-            <li>Remember speed in the current tab or across videos.</li>
-            <li>Use separate defaults for standard videos and Shorts.</li>
-            <li>Restore the preferred speed during YouTube navigation.</li>
-            <li>Handle browser speed limits without repeated technical errors.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h2>Private by design</h2>
-          <p>Speed Lab runs only on YouTube. It does not require an account, use analytics, collect video titles, or transmit browsing history.</p>
-          <p>Your settings remain in Chrome storage on your device.</p>
-          <div class="callout"><strong>Independent product</strong><p>Speed Lab is not affiliated with or endorsed by YouTube or Google.</p></div>
-        </article>
-      </div>
-    </section>
-  </main>
+      <section class="section compact">
+        <div class="container grid two">
+          <article class="card">
+            <h2>What it does</h2>
+            <ul class="feature-list">
+              <li>Set an exact playback speed.</li>
+              <li>Save presets for common speeds.</li>
+              <li>Change, reset, or restore speeds with keyboard shortcuts.</li>
+              <li>Hold B for temporary 2× playback.</li>
+              <li>
+                Remember speed for the current tab or all videos, with separate
+                defaults for videos and Shorts.
+              </li>
+            </ul>
+          </article>
+          <article class="card">
+            <h2>Data use</h2>
+            <p>
+              Speed Lab runs only on YouTube. It stores settings in Chrome on
+              your device.
+            </p>
+            <p>
+              Speed Lab does not require an account or send browsing data to
+              Perschino Labs.
+            </p>
+            <div class="callout">
+              <strong>Independent product</strong>
+              <p>
+                Speed Lab is not affiliated with or endorsed by YouTube or
+                Google.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>Speed Lab is published by Perschino Labs.</p>
-      <nav class="footer-links" aria-label="Footer navigation"><a href="../">Home</a><a href="./">Speed Lab</a><a href="privacy.html">Privacy</a><a href="support.html">Contact</a></nav>
-    </div>
-  </footer>
-</body>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Speed Lab is published by Perschino Labs.</p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="../">Home</a><a href="./">Speed Lab</a
+          ><a href="privacy.html">Privacy</a><a href="support.html">Support</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>

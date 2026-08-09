@@ -9,10 +9,13 @@
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  const reduceMotion = window.matchMedia?.(
+    "(prefers-reduced-motion: reduce)",
+  )?.matches;
   if (reduceMotion) return;
 
-  const q = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+  const q = (selector, scope = document) =>
+    Array.from(scope.querySelectorAll(selector));
 
   function animateHeader() {
     const header = document.querySelector(".site-header");
@@ -23,7 +26,7 @@
       autoAlpha: 0,
       duration: 0.55,
       ease: "power2.out",
-      clearProps: "transform,opacity,visibility"
+      clearProps: "transform,opacity,visibility",
     });
   }
 
@@ -32,33 +35,21 @@
     if (!hero) return;
 
     const copy = q(".hero-copy > *", hero);
-    const facts = q(".hero-facts > div", hero);
-    const canvas = hero.closest(".immersive-stage")?.querySelector(".ambient-field");
 
     const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    if (canvas) {
-      timeline.from(canvas, { autoAlpha: 0, duration: 0.9 }, 0);
-    }
-
     if (copy.length) {
-      timeline.from(copy, {
-        y: 24,
-        autoAlpha: 0,
-        duration: 0.68,
-        stagger: 0.075,
-        clearProps: "transform,opacity,visibility"
-      }, 0.06);
-    }
-
-    if (facts.length) {
-      timeline.from(facts, {
-        y: 16,
-        autoAlpha: 0,
-        duration: 0.58,
-        stagger: 0.055,
-        clearProps: "transform,opacity,visibility"
-      }, 0.24);
+      timeline.from(
+        copy,
+        {
+          y: 24,
+          autoAlpha: 0,
+          duration: 0.68,
+          stagger: 0.075,
+          clearProps: "transform,opacity,visibility",
+        },
+        0.06,
+      );
     }
   }
 
@@ -69,32 +60,35 @@
     const icon = stage.querySelector(".product-hero > img");
     const content = stage.querySelector(".product-hero > div");
     const contentItems = content ? Array.from(content.children) : [];
-    const canvas = stage.querySelector(".ambient-field");
 
     const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    if (canvas) {
-      timeline.from(canvas, { autoAlpha: 0, duration: 0.85 }, 0);
-    }
-
     if (icon) {
-      timeline.from(icon, {
-        scale: 0.82,
-        y: 18,
-        autoAlpha: 0,
-        duration: 0.72,
-        clearProps: "transform,opacity,visibility"
-      }, 0.05);
+      timeline.from(
+        icon,
+        {
+          scale: 0.82,
+          y: 18,
+          autoAlpha: 0,
+          duration: 0.72,
+          clearProps: "transform,opacity,visibility",
+        },
+        0.05,
+      );
     }
 
     if (contentItems.length) {
-      timeline.from(contentItems, {
-        y: 22,
-        autoAlpha: 0,
-        duration: 0.62,
-        stagger: 0.07,
-        clearProps: "transform,opacity,visibility"
-      }, 0.1);
+      timeline.from(
+        contentItems,
+        {
+          y: 22,
+          autoAlpha: 0,
+          duration: 0.62,
+          stagger: 0.07,
+          clearProps: "transform,opacity,visibility",
+        },
+        0.1,
+      );
     }
   }
 
@@ -114,74 +108,9 @@
           trigger: element,
           start: options.start ?? "top 88%",
           once: true,
-          invalidateOnRefresh: true
-        }
+          invalidateOnRefresh: true,
+        },
       });
-    });
-  }
-
-  function addScrollParallax() {
-    if (!ScrollTrigger) return;
-
-    q(".immersive-stage .ambient-field, .product-stage .ambient-field").forEach((canvas) => {
-      const stage = canvas.parentElement;
-      if (!stage) return;
-
-      gsap.to(canvas, {
-        yPercent: 7,
-        ease: "none",
-        scrollTrigger: {
-          trigger: stage,
-          start: "top top",
-          end: "bottom top",
-          scrub: 0.5,
-          invalidateOnRefresh: true
-        }
-      });
-    });
-  }
-
-  function addCardHoverDepth() {
-    q(".interactive-card").forEach((card) => {
-      let active = false;
-
-      const reset = () => {
-        active = false;
-        gsap.to(card, {
-          rotationX: 0,
-          rotationY: 0,
-          x: 0,
-          y: 0,
-          duration: 0.38,
-          ease: "power2.out",
-          overwrite: true
-        });
-      };
-
-      card.addEventListener("pointerenter", () => {
-        active = true;
-      });
-
-      card.addEventListener("pointermove", (event) => {
-        if (!active || event.pointerType === "touch") return;
-        const rect = card.getBoundingClientRect();
-        const px = (event.clientX - rect.left) / rect.width - 0.5;
-        const py = (event.clientY - rect.top) / rect.height - 0.5;
-
-        gsap.to(card, {
-          rotationY: px * 2.4,
-          rotationX: py * -2,
-          transformPerspective: 900,
-          x: px * 2,
-          y: -3 + py * 1.5,
-          duration: 0.28,
-          ease: "power2.out",
-          overwrite: true
-        });
-      });
-
-      card.addEventListener("pointerleave", reset);
-      card.addEventListener("pointercancel", reset);
     });
   }
 
@@ -193,17 +122,25 @@
     animateProductHero();
 
     revealOnScroll("#experience .section-header", { y: 18, duration: 0.58 });
-    revealOnScroll("#experience .experience-item", { y: 22, duration: 0.6, staggerByIndex: 0.04 });
+    revealOnScroll("#experience .experience-feature", { y: 22, duration: 0.6 });
     revealOnScroll("#experience .background-card", { y: 22, duration: 0.62 });
     revealOnScroll("#tools .section-header", { y: 18, duration: 0.58 });
-    revealOnScroll("#tools .interactive-card", { y: 28, scale: 0.99, duration: 0.68 });
+    revealOnScroll("#tools .interactive-card", {
+      y: 28,
+      scale: 0.99,
+      duration: 0.68,
+    });
     revealOnScroll(".contact-panel", { y: 24, scale: 0.99, duration: 0.68 });
-    revealOnScroll(".section.compact .card", { y: 24, duration: 0.62, staggerByIndex: 0.04 });
-
-    addScrollParallax();
+    revealOnScroll(".section.compact .card", {
+      y: 24,
+      duration: 0.62,
+      staggerByIndex: 0.04,
+    });
 
     if (ScrollTrigger) {
-      window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+      window.addEventListener("load", () => ScrollTrigger.refresh(), {
+        once: true,
+      });
     }
   }
 
