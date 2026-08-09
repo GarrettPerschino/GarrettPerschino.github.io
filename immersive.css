@@ -26,7 +26,9 @@ body.has-immersive-hero { background: #080808; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.76) 47%, rgba(8, 8, 8, 0.4) 74%, #080808 100%);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.05), transparent 30%),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.18), #080808 100%);
   pointer-events: none;
   content: "";
 }
@@ -49,9 +51,9 @@ body.has-immersive-hero { background: #080808; }
 }
 
 .hero.hero-immersive {
-  min-height: 720px;
-  padding-top: 92px;
-  padding-bottom: 106px;
+  min-height: 680px;
+  padding-top: 82px;
+  padding-bottom: 82px;
 }
 
 .hero-copy {

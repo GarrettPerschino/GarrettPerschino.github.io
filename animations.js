@@ -13,7 +13,6 @@
   if (reduceMotion) return;
 
   const q = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
-  const exists = (selector, scope = document) => Boolean(scope.querySelector(selector));
 
   function animateHeader() {
     const header = document.querySelector(".site-header");
@@ -33,7 +32,7 @@
     if (!hero) return;
 
     const copy = q(".hero-copy > *", hero);
-    const card = hero.querySelector(".scene-card");
+    const facts = q(".hero-facts > div", hero);
     const canvas = hero.closest(".immersive-stage")?.querySelector(".ambient-field");
 
     const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -52,23 +51,14 @@
       }, 0.06);
     }
 
-    if (card) {
-      timeline.fromTo(card,
-        {
-          x: 28,
-          y: 12,
-          autoAlpha: 0
-        },
-        {
-          x: 0,
-          y: 0,
-          autoAlpha: 1,
-          duration: 0.85,
-          clearProps: "transform,opacity,visibility",
-          ease: "power3.out"
-        },
-        0.18
-      );
+    if (facts.length) {
+      timeline.from(facts, {
+        y: 16,
+        autoAlpha: 0,
+        duration: 0.58,
+        stagger: 0.055,
+        clearProps: "transform,opacity,visibility"
+      }, 0.24);
     }
   }
 
