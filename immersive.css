@@ -1,33 +1,24 @@
-/* Progressive 3D-style presentation layer for Perschino Labs.
-   Core content remains usable if this stylesheet or the canvas renderer is unavailable. */
+/* Minimal presentation layer. Core content remains usable without it. */
 
-body.has-immersive-hero {
-  background:
-    radial-gradient(circle at 82% 8%, rgba(75, 224, 183, 0.075), transparent 28rem),
-    radial-gradient(circle at 15% 18%, rgba(77, 141, 255, 0.07), transparent 31rem),
-    #07131d;
-}
+body.has-immersive-hero { background: #080808; }
 
 .immersive-stage {
   position: relative;
   isolation: isolate;
   overflow: clip;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  background:
-    radial-gradient(circle at 72% 40%, rgba(75, 224, 183, 0.09), transparent 24rem),
-    radial-gradient(circle at 28% 26%, rgba(77, 141, 255, 0.1), transparent 28rem),
-    linear-gradient(180deg, rgba(255,255,255,0.018), transparent 65%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: #080808;
 }
 
 .immersive-stage::before {
   position: absolute;
   inset: 0;
-  z-index: -3;
+  z-index: -2;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), transparent 92%);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 94%);
   content: "";
 }
 
@@ -35,9 +26,7 @@ body.has-immersive-hero {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(90deg, #07131d 0%, rgba(7,19,29,.91) 35%, rgba(7,19,29,.24) 68%, #07131d 100%),
-    linear-gradient(180deg, rgba(7,19,29,.05), #07131d 98%);
+  background: linear-gradient(90deg, rgba(8, 8, 8, 0.95) 0%, rgba(8, 8, 8, 0.76) 47%, rgba(8, 8, 8, 0.4) 74%, #080808 100%);
   pointer-events: none;
   content: "";
 }
@@ -48,14 +37,21 @@ body.has-immersive-hero {
   z-index: -2;
   width: 100%;
   height: 100%;
+  opacity: 0.52;
   pointer-events: none;
-  opacity: .94;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
+  gap: 64px;
+  align-items: center;
 }
 
 .hero.hero-immersive {
-  min-height: 760px;
-  padding-top: 104px;
-  padding-bottom: 112px;
+  min-height: 720px;
+  padding-top: 92px;
+  padding-bottom: 106px;
 }
 
 .hero-copy {
@@ -63,93 +59,15 @@ body.has-immersive-hero {
   z-index: 2;
 }
 
-.hero-copy h1 {
-  max-width: 670px;
-  text-wrap: balance;
+.hero-copy h1 { text-wrap: balance; }
+
+.interactive-card {
+  transition: border-color 170ms ease, transform 170ms ease;
 }
 
-.hero-copy .lede {
-  max-width: 620px;
-}
-
-.hero-card.scene-card {
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-  border-color: rgba(255,255,255,.14);
-  background: rgba(9, 25, 37, 0.68);
-  box-shadow:
-    0 28px 90px rgba(0,0,0,.48),
-    inset 0 1px 0 rgba(255,255,255,.06);
-  backdrop-filter: blur(18px) saturate(120%);
-  transform: perspective(900px) rotateY(-3deg) rotateX(1.5deg);
-  transform-origin: center;
-}
-
-.hero-card.scene-card::before {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, rgba(255,255,255,.055), transparent 38%, rgba(75,224,183,.06));
-  pointer-events: none;
-  content: "";
-}
-
-.scene-card .hero-card-header,
-.scene-card .stat-list {
-  position: relative;
-  z-index: 1;
-}
-
-.scene-card .hero-card-header img {
-  box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 12px 30px rgba(0,0,0,.4);
-}
-
-.micro-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 22px;
-  color: #7993a3;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.micro-label::before {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #4be0b7;
-  box-shadow: 0 0 14px rgba(75,224,183,.75);
-  content: "";
-}
-
-.product-card.interactive-card {
-  position: relative;
-  overflow: hidden;
-  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
-}
-
-.product-card.interactive-card::after {
-  position: absolute;
-  right: -80px;
-  bottom: -120px;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(77,141,255,.13), transparent 68%);
-  pointer-events: none;
-  content: "";
-}
-
-.product-card.interactive-card:hover {
-  border-color: rgba(255,255,255,.2);
-  box-shadow: 0 24px 70px rgba(0,0,0,.42);
-  transform: translateY(-3px);
-}
-
-.product-card.interactive-card > * {
-  position: relative;
-  z-index: 1;
+.interactive-card:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  transform: translateY(-2px);
 }
 
 .product-stage {
@@ -157,18 +75,27 @@ body.has-immersive-hero {
   isolation: isolate;
   overflow: clip;
   min-height: 470px;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  background:
-    radial-gradient(circle at 68% 42%, rgba(75,224,183,.09), transparent 24rem),
-    radial-gradient(circle at 34% 28%, rgba(77,141,255,.08), transparent 26rem),
-    #07131d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: #080808;
+}
+
+.product-stage::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), transparent 92%);
+  content: "";
 }
 
 .product-stage::after {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(7,19,29,.98) 4%, rgba(7,19,29,.76) 46%, rgba(7,19,29,.22) 78%, #07131d 100%);
+  background: linear-gradient(90deg, rgba(8, 8, 8, 0.98) 4%, rgba(8, 8, 8, 0.8) 48%, rgba(8, 8, 8, 0.38) 78%, #080808 100%);
   pointer-events: none;
   content: "";
 }
@@ -183,93 +110,29 @@ body.has-immersive-hero {
 }
 
 .product-stage .product-hero > img {
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.12),
-    0 24px 70px rgba(0,0,0,.5),
-    0 0 52px rgba(75,224,183,.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 24px 70px rgba(0, 0, 0, 0.52);
 }
 
-.product-stage .lede {
-  max-width: 620px;
+.product-stage .lede { max-width: 620px; }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero.hero-immersive { min-height: auto; padding-top: 70px; padding-bottom: 82px; }
+  .immersive-stage::after,
+  .product-stage::after { background: linear-gradient(180deg, rgba(8, 8, 8, 0.68), #080808 92%); }
+  .ambient-field { opacity: 0.38; }
 }
 
-.product-stage .ambient-field {
-  opacity: .82;
-}
-
-.feature-list li::marker,
-.policy-list li::marker,
-.steps li::marker {
-  color: #55dfba;
-}
-
-@media (max-width: 900px) {
-  .immersive-stage::after {
-    background: linear-gradient(180deg, rgba(7,19,29,.72), rgba(7,19,29,.94) 78%, #07131d);
-  }
-
-  .hero.hero-immersive {
-    min-height: auto;
-    padding-top: 64px;
-    padding-bottom: 70px;
-  }
-
-  .hero-card.scene-card {
-    max-width: 560px;
-    transform: none;
-  }
-
-  .ambient-field {
-    opacity: .64;
-  }
-
-  .product-stage::after {
-    background: linear-gradient(180deg, rgba(7,19,29,.66), #07131d 90%);
-  }
-}
-
-@media (max-width: 660px) {
-  .immersive-stage::before {
-    background-size: 44px 44px;
-  }
-
-  .hero.hero-immersive {
-    padding-top: 50px;
-    padding-bottom: 54px;
-  }
-
-  .hero-card.scene-card {
-    background: rgba(10,28,40,.86);
-    backdrop-filter: blur(12px);
-  }
-
+@media (max-width: 720px) {
+  .immersive-stage::before,
+  .product-stage::before { background-size: 48px 48px; }
+  .hero.hero-immersive { padding-top: 54px; padding-bottom: 66px; }
   .product-stage,
-  .product-stage .product-hero {
-    min-height: auto;
-  }
-
-  .product-stage .product-hero {
-    padding-top: 52px;
-    padding-bottom: 52px;
-  }
+  .product-stage .product-hero { min-height: auto; }
+  .product-stage .product-hero { padding-top: 54px; padding-bottom: 54px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .product-card.interactive-card {
-    transition: none;
-  }
-
-  .product-card.interactive-card:hover {
-    transform: none;
-  }
-
-  .hero-card.scene-card {
-    transform: none;
-  }
-}
-
-@supports not (backdrop-filter: blur(12px)) {
-  .hero-card.scene-card {
-    background: rgba(10,28,40,.96);
-  }
+  .interactive-card { transition: none; }
+  .interactive-card:hover { transform: none; }
 }

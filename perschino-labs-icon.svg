@@ -1,18 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">Perschino Labs</title>
-  <desc id="desc">Blue and green PL monogram</desc>
-  <defs>
-    <linearGradient id="panel" x1="8" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#17354A"/>
-      <stop offset="1" stop-color="#091721"/>
-    </linearGradient>
-    <linearGradient id="signal" x1="37" y1="18" x2="57" y2="50" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#63A2FF"/>
-      <stop offset="1" stop-color="#4BE0B7"/>
-    </linearGradient>
-  </defs>
-  <rect x="1" y="1" width="62" height="62" rx="17" fill="url(#panel)" stroke="#4D8DFF" stroke-opacity=".28"/>
-  <path d="M10 48V16h15.5c8.3 0 13.5 4.3 13.5 11.4 0 7.2-5.2 11.6-13.5 11.6h-6.1V48H10Zm9.4-17h5.3c3.4 0 5.2-1.2 5.2-3.6 0-2.3-1.8-3.5-5.2-3.5h-5.3V31Z" fill="#F3F8FB"/>
-  <path d="M38 48V16h9.4v23.8H58V48H38Z" fill="url(#signal)"/>
-  <circle cx="52.5" cy="12" r="2.5" fill="#4BE0B7"/>
+  <desc id="desc">Black and white PL monogram</desc>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#0B0B0B" stroke="#FFFFFF" stroke-opacity=".26"/>
+  <path d="M10 48V16h15.5c8.3 0 13.5 4.3 13.5 11.4 0 7.2-5.2 11.6-13.5 11.6h-6.1V48H10Zm9.4-17h5.3c3.4 0 5.2-1.2 5.2-3.6 0-2.3-1.8-3.5-5.2-3.5h-5.3V31Z" fill="#F3F3F1"/>
+  <path d="M38 48V16h9.4v23.8H58V48H38Z" fill="#9A9A96"/>
 </svg>

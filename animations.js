@@ -55,22 +55,16 @@
     if (card) {
       timeline.fromTo(card,
         {
-          x: 34,
+          x: 28,
           y: 12,
-          autoAlpha: 0,
-          rotationY: -9,
-          rotationX: 3,
-          transformPerspective: 900
+          autoAlpha: 0
         },
         {
           x: 0,
           y: 0,
           autoAlpha: 1,
-          rotationY: -3,
-          rotationX: 1.5,
-          transformPerspective: 900,
           duration: 0.85,
-          clearProps: "opacity,visibility",
+          clearProps: "transform,opacity,visibility",
           ease: "power3.out"
         },
         0.18
@@ -208,16 +202,15 @@
     animateHomeHero();
     animateProductHero();
 
-    revealOnScroll("#products .section-header", { y: 18, duration: 0.58 });
-    revealOnScroll("#products .interactive-card", { y: 30, scale: 0.985, duration: 0.7 });
-    revealOnScroll("#principles .section-header", { y: 20, duration: 0.6 });
-    revealOnScroll("#principles .principle-card", { y: 26, duration: 0.62, staggerByIndex: 0.05 });
-    revealOnScroll(".studio-statement > *", { y: 22, duration: 0.64, staggerByIndex: 0.05 });
+    revealOnScroll("#experience .section-header", { y: 18, duration: 0.58 });
+    revealOnScroll("#experience .experience-item", { y: 22, duration: 0.6, staggerByIndex: 0.04 });
+    revealOnScroll("#experience .background-card", { y: 22, duration: 0.62 });
+    revealOnScroll("#tools .section-header", { y: 18, duration: 0.58 });
+    revealOnScroll("#tools .interactive-card", { y: 28, scale: 0.99, duration: 0.68 });
     revealOnScroll(".contact-panel", { y: 24, scale: 0.99, duration: 0.68 });
     revealOnScroll(".section.compact .card", { y: 24, duration: 0.62, staggerByIndex: 0.04 });
 
     addScrollParallax();
-    addCardHoverDepth();
 
     if (ScrollTrigger) {
       window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
